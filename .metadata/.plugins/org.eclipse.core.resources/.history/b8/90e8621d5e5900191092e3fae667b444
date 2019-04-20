@@ -1,0 +1,19 @@
+/**
+ * \file Ouvrage.h
+ * \brief Interface de la classe Ouvrage
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-07
+ */
+
+#ifndef OUVRAGE_H_
+#define OUVRAGE_H_
+
+#include "Reference.h"
+
+#include <string>
+
+namespace biblio
+{
+
+}

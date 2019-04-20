@@ -1,0 +1,23 @@
+/**
+ * \file gestionReferences.cpp
+ * \brief Programme principal
+ * \author etudiant
+ * \date 2019-02-27
+ */
+
+#include <iostream>
+#include "Reference.h"
+#include "validationFormat.h"
+#include "Ouvrage.h"
+using namespace std;
+using namespace biblio;
+using namespace util;
+
+int main()
+{
+	int annee = 1030;
+	Ouvrage ouvrage("Albert Einstein", "Mein Kampf", annee,
+	        "ISBN 978-2-1234-5680-3", "", "Berlin");
+	cout << ouvrage.reqReferenceFormate();
+	return 0;
+}

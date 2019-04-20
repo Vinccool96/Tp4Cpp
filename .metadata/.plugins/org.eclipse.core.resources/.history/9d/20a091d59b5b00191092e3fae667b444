@@ -1,0 +1,20 @@
+/**
+ * \file gestionReferences.cpp
+ * \brief Programme principal
+ * \author etudiant
+ * \date 2019-02-27
+ */
+
+#include <iostream>
+#include "Reference.h"
+#include "validationFormat.h"
+#include "Ouvrage.h"
+using namespace std;
+using namespace biblio;
+using namespace util;
+
+int main()
+{
+	cout << "Bye";
+	return 0;
+}

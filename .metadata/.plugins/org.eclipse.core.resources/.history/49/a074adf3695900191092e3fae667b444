@@ -1,0 +1,32 @@
+/**
+ * \file Ouvrage.cpp
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-07
+ */
+
+#include "Ouvrage.h"
+#include "validationFormat.h"
+#include <sstream>
+
+const std::string& biblio::Ouvrage::reqEditeur() const
+{
+	return m_editeur;
+}
+
+void biblio::Ouvrage::asgEditeur(const std::string& editeur)
+{
+	m_editeur = editeur;
+}
+
+const std::string& biblio::Ouvrage::reqVille() const
+{
+	return m_ville;
+}
+
+void biblio::Ouvrage::asgVille(const std::string& ville)
+{
+	m_ville = ville;
+}
+

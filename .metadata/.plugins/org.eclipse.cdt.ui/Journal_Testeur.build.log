@@ -1,0 +1,15 @@
+11:58:06 **** Incremental Build of configuration Debug for project Journal_Testeur ****
+make all 
+Building file: ../Journal_Testeur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1z -I"/home/etudiant/tp3/source" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Journal_Testeur.d" -MT"Journal_Testeur.o" -o "Journal_Testeur.o" "../Journal_Testeur.cpp"
+Finished building: ../Journal_Testeur.cpp
+ 
+Building target: Journal_Testeur
+Invoking: GCC C++ Linker
+g++ -L"/home/etudiant/tp3/source/Debug" -o "Journal_Testeur"  ./Journal_Testeur.o   -lgtest_main -lgtest -lpthread -lsource
+Finished building target: Journal_Testeur
+ 
+
+11:58:07 Build Finished (took 853ms)
+

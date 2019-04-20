@@ -1,0 +1,78 @@
+/**
+ * \file Journal.cpp
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-08
+ */
+
+#include "Journal.h"
+#include "validationFormat.h"
+
+namespace biblio
+{
+	/**
+	 * Retourne le nom de la référence
+	 * \return le string du nom
+	 */
+	const std::string& Journal::reqNom() const
+	{
+		return m_nom;
+	}
+
+	/**
+	 * Retourne l'année de la référence
+	 * \return  le int de l'année
+	 */
+	int Journal::reqNumero() const
+	{
+		return m_numero;
+	}
+
+	/**
+	 * Retourne l'année de la référence
+	 * \return  le int de l'année
+	 */
+	int Journal::reqPage() const
+	{
+		return m_page;
+	}
+
+	/**
+	 * Retourne l'année de la référence
+	 * \return  le int de l'année
+	 */
+	int Journal::reqVolume() const
+	{
+		return m_volume;
+	}
+
+	/**
+	 * \brief crée un clone de l'objet
+	 * \return un objet de type Journal qui possède les mêmes propriétés que l'objet initial.
+	 */
+	Reference* Journal::clone() const
+	{
+		return new Journal(*this);
+	}
+
+	/**
+	 * La représentation textuelle de la référence
+	 * \return un string sous la forme "m_auteur. m_titre. m_ville : m_editeur, m_annee. m_iditenfiant."
+	 */
+	std::string Journal::reqReferenceFormate() const
+	{
+	}
+
+	/**
+	 * \brief Vérifie les invariants de la classe
+	 */
+	void Journal::verifieInvariant() const
+	{
+		INVARIANT(!(m_nom.empty()));
+		INVARIANT(m_numero > 0);
+		INVARIANT(m_page > 0);
+		INVARIANT(m_volume > 0);
+	}
+}  // namespace biblio
+

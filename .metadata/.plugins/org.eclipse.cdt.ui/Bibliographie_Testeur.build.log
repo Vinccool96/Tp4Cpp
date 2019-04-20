@@ -1,0 +1,15 @@
+15:56:14 **** Incremental Build of configuration Debug for project Bibliographie_Testeur ****
+make all 
+Building file: ../Bibliographie_Testeur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1z -I"/home/etudiant/tp3/source" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Bibliographie_Testeur.d" -MT"Bibliographie_Testeur.o" -o "Bibliographie_Testeur.o" "../Bibliographie_Testeur.cpp"
+Finished building: ../Bibliographie_Testeur.cpp
+ 
+Building target: Bibliographie_Testeur
+Invoking: GCC C++ Linker
+g++ -L"/home/etudiant/tp3/source/Debug" -o "Bibliographie_Testeur"  ./Bibliographie_Testeur.o   -lgtest_main -lgtest -lpthread -lsource
+Finished building target: Bibliographie_Testeur
+ 
+
+15:56:15 Build Finished (took 897ms)
+

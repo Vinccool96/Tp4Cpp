@@ -1,0 +1,35 @@
+/**
+ * \file Journal.cpp
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-08
+ */
+
+#include "Journal.h"
+#include "validationFormat.h"
+
+namespace biblio
+{
+
+}  // namespace biblio
+
+const std::string& biblio::Journal::reqNom() const
+{
+	return m_nom;
+}
+
+int biblio::Journal::reqNumero() const
+{
+	return m_numero;
+}
+
+int biblio::Journal::reqPage() const
+{
+	return m_page;
+}
+
+int biblio::Journal::reqVolume() const
+{
+	return m_volume;
+}

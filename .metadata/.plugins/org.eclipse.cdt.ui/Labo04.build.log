@@ -1,0 +1,15 @@
+15:02:03 **** Incremental Build of configuration Debug for project Labo04 ****
+make all 
+Building file: ../src/Sphere.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Sphere.d" -MT"src/Sphere.o" -o "src/Sphere.o" "../src/Sphere.cpp"
+Finished building: ../src/Sphere.cpp
+ 
+Building target: Labo04
+Invoking: GCC C++ Linker
+g++  -o "Labo04"  ./src/Labo04.o ./src/Sphere.o   
+Finished building target: Labo04
+ 
+
+15:02:04 Build Finished (took 366ms)
+

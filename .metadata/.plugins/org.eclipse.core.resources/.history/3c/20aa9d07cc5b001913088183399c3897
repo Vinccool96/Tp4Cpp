@@ -1,0 +1,83 @@
+/**
+ * \file gestionReferences.cpp
+ * \brief Programme principal
+ * \author etudiant
+ * \date 2019-02-27
+ */
+
+#include <iostream>
+#include "Reference.h"
+#include "validationFormat.h"
+#include "Ouvrage.h"
+using namespace std;
+using namespace biblio;
+using namespace util;
+
+int main()
+{
+	string auteurs;
+	string titre;
+	int annee;
+	string identifiant;
+	cout << "Crée une référence" << endl;
+	do
+	{
+		cout << "Entre le nom des auteurs:" << endl;
+		std::getline(std::cin, auteurs);
+	} while (!validerFormatNom(auteurs));
+	{
+		cout << "Entre le titre:" << endl;
+		std::getline(std::cin, titre);
+	}
+	do
+	{
+		string anneeStr;
+		cout << "Entre l'année:" << endl;
+		std::getline(std::cin, anneeStr);
+		annee = std::stoi(anneeStr);
+	} while (annee <= 0);
+	do
+	{
+		cout << "Entre le code d'identification:" << endl;
+		std::getline(std::cin, identifiant);
+	} while (!(validerCodeIssn(identifiant) || validerCodeIsbn(identifiant)));
+	Reference ref = Reference(auteurs, titre, annee, identifiant);
+	cout << "Ta référence:" << ref.reqReferenceFormate() << endl;
+
+	cout << "Bye";
+	return 0;
+}
+
+Ouvrage creerOuvrage()
+{
+	string auteurs;
+	string titre;
+	int annee;
+	string identifiant;
+	string editeur;
+	string ville;
+	cout << "Crée un ouvrage" << endl;
+	do
+	{
+		cout << "Entre le nom des auteurs:" << endl;
+		std::getline(std::cin, auteurs);
+	} while (!auteurs.empty() && !validerFormatNom(auteurs));
+	do
+	{
+		cout << "Entre le titre:" << endl;
+		std::getline(std::cin, titre);
+	} while (!titre.empty());
+	do
+	{
+		string anneeStr;
+		cout << "Entre l'année:" << endl;
+		std::getline(std::cin, anneeStr);
+		annee = std::stoi(anneeStr);
+	} while (annee <= 0);
+	do
+	{
+		cout << "Entre le code d'identification:" << endl;
+		std::getline(std::cin, identifiant);
+	} while (!(validerCodeIsbn(identifiant)));
+	Reference ref = Reference(auteurs, titre, annee, identifiant);
+}

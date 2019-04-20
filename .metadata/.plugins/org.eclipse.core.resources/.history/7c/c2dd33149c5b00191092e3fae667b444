@@ -1,0 +1,10 @@
+gestionReferences.o: ../gestionReferences.cpp ../Reference.h \
+ ../ContratException.h ../validationFormat.h ../Ouvrage.h
+
+../Reference.h:
+
+../ContratException.h:
+
+../validationFormat.h:
+
+../Ouvrage.h:

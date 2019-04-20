@@ -1,0 +1,49 @@
+/**
+ * \file Journal.h
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-08
+ */
+
+#ifndef JOURNAL_H_
+#define JOURNAL_H_
+
+#include "Reference.h"
+
+#include <string>
+
+namespace biblio
+{
+	/**
+	 * \class Journal
+	 * \brief Classe permettant d'implémenter le concept de référence bibliographique d'un journal
+	 *
+	 * Attributs:
+	 * 		string 	m_auteurs: 		Le ou les auteurs de la référence
+	 * 		string 	m_titre:		Le titre de la référence
+	 * 		int 	m_annee:		L'année de publication de la référence
+	 * 		string 	m_identifiant	Le code d'identification de la référence, soit le code ISBN
+	 * 		string 	m_nom:	 		Le nom du journal
+	 * 		int 	m_volume		Le volume du journal
+	 * 		int 	m_numero		Le numéro du journal
+	 * 		int 	m_page			La page dans le journal
+	 */
+	class Journal: public Reference
+	{
+		public:
+			const std::string& reqNom() const;
+			int reqNumero() const;
+			int reqPage() const;
+			int reqVolume() const;
+		private:
+			std::string m_nom;
+			int m_volume;
+			int m_numero;
+			int m_page;
+			void verifieInvariant() const;
+	};
+
+}  // namespace biblio
+
+#endif /* JOURNAL_H_ */

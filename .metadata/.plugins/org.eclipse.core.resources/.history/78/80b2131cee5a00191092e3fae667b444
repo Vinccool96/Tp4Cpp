@@ -1,0 +1,131 @@
+/**
+ * \file Reference.cpp
+ * \brief Implémentation de la classe Reference
+ * \author etudiant
+ * \date 2019-02-26
+ */
+
+#include "Reference.h"
+#include "validationFormat.h"
+#include <sstream>
+
+namespace biblio
+{
+
+	/**
+	 * \brief Crée une instance de Reference
+	 * \param[in] p_auteurs un string listant les auteurs
+	 * \param[in] p_titre le titre de la référence sous forme de string
+	 * \param[in] p_annee un int représantant l'année
+	 * \param[in] p_identifiant le string de l'identifiant
+	 * \pre p_auteurs n'est pas nul et respecte le format donné par util::validerFormatNom()
+	 * \pre p_titre n'est pas nul
+	 * \pre p_annee est plus grand que 0
+	 * \pre n'est pas nul et est un code ISSN ou un code ISBN valide
+	 * \post m_auteurs prend la valeur de p_auteurs
+	 * \post m_titre prend la valeur de p_titre
+	 * \post m_annee prend la valeur de p_annee
+	 * \post m_identifiant prend la valeur de p_identifiant
+	 */
+	Reference::Reference(const std::string& p_auteurs,
+	        const std::string& p_titre, int& p_annee,
+	        const std::string& p_identifiant) :
+			m_auteurs(p_auteurs), m_titre(p_titre), m_annee(p_annee), m_identifiant(
+			        p_identifiant)
+	{
+		PRECONDITION(!(p_auteurs.empty()) && util::validerFormatNom(p_auteurs));
+		PRECONDITION(!(p_titre.empty()));
+		PRECONDITION(p_annee > 0);
+		PRECONDITION(
+		        !(p_identifiant.empty())
+		                && (util::validerCodeIssn(p_identifiant)
+		                        || util::validerCodeIsbn(p_identifiant)));
+
+		POSTCONDITION(m_auteurs == p_auteurs);
+		POSTCONDITION(m_titre == p_titre);
+		POSTCONDITION(m_annee == p_annee);
+		POSTCONDITION(m_identifiant == p_identifiant);
+
+		INVARIANTS();
+	}
+
+	/**
+	 * Le destructeur de Reference
+	 */
+	Reference::~Reference()
+	{
+	}
+
+	/**
+	 * Retourne l'année de la référence
+	 * \return  le int de l'année
+	 */
+	const int Reference::reqAnnee() const
+	{
+		return m_annee;
+	}
+
+	/**
+	 * Retourne les auteurs de la référence
+	 * \return le string des auteurs
+	 */
+	const std::string& Reference::reqAuteurs() const
+	{
+		return m_auteurs;
+	}
+
+	/**
+	 * Assigne les auteurs de la référence
+	 * \param[in] p_auteurs le string des nouveaux auteurs
+	 * \pre p_auteurs n'est pas nul et respecte le format donné par util::validerFormatNom()
+	 * \post m_auteurs prend la valeur de p_auteurs
+	 */
+	void Reference::asgAuteurs(const std::string& p_auteurs)
+	{
+		PRECONDITION(!(p_auteurs.empty()) && util::validerFormatNom(p_auteurs));
+		m_auteurs = p_auteurs;
+		POSTCONDITION(m_auteurs == p_auteurs);
+		INVARIANTS();
+	}
+
+	/**
+	 * Retourne l'identifiant de la référence
+	 * \return le string de l'identifiant
+	 */
+	const std::string& Reference::reqIdentifiant() const
+	{
+		return m_identifiant;
+	}
+
+	/**
+	 * Retourne le titre de la référence
+	 * \return le string du titre
+	 */
+	const std::string& Reference::reqTitre() const
+	{
+		return m_titre;
+	}
+
+	/**
+	 * La représentation textuelle de la référence
+	 * \return un string sous la forme "auteur, titre, année, identificateur"
+	 */
+	std::string Reference::reqReferenceFormate() const
+	{
+		std::ostringstream oss;
+		oss << reqAuteurs() << ". " << reqTitre() << ".";
+		return oss.str();
+	}
+
+	/**
+	 * \brief Vérifie les invariants de la classe
+	 */
+	void Reference::verifieInvariant() const
+	{
+		INVARIANT(!(m_auteurs.empty()));
+		INVARIANT(!(m_titre.empty()));
+		INVARIANT(m_annee > 0);
+		INVARIANT(!(m_identifiant.empty()));
+	}
+
+}  // namespace biblio

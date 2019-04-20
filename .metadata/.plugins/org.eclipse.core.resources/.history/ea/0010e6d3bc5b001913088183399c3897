@@ -1,0 +1,57 @@
+/**
+ * \file Bibliographie.cpp
+ * \brief Implémentation de la classe Bibliographie
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-10
+ */
+#include "Bibliographie.h"
+#include "ContratException.h"
+
+#include <sstream>
+#include <vector>
+
+namespace biblio
+{
+
+	Bibliographie::Bibliographie()
+	{
+	}
+
+	Bibliographie::~Bibliographie()
+	{
+		m_vReferences.clear();
+		std::vector<Reference*>(m_vReferences).swap(m_vReferences);
+	}
+
+	void Bibliographie::ajouterReference(const Reference& p_nouvelleReference)
+	{
+		m_vReferences.push_back(&&p_nouvelleReference);
+	}
+
+	/**
+	 * La représentation textuelle de la bibliographie
+	 * \return un string sous la forme "m_auteur. m_titre. m_nom, vol. m_volume, no. m_numero, pp. m_page,
+	 * 			m_annee. m_iditenfiant."
+	 */
+	std::string Bibliographie::reqBibliographieFormate() const
+	{
+		std::ostringstream oss;
+		oss << "Bibliographie\n" << "===============================\n";
+		for (unsigned int i = 0; i < m_vReferences.size(); i++)
+		{
+			oss << "[" << i << "] " << m_vReferences[i]->reqReferenceFormate()
+			        << "\n";
+		}
+		return oss.str();
+	}
+
+	/**
+	 * \brief Vérifie les invariants de la classe
+	 */
+	void Bibliographie::verifieInvariant() const
+	{
+	}
+
+}  // namespace biblio
+

@@ -1,0 +1,45 @@
+/**
+ * \file Journal.cpp
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-08
+ */
+
+#include "Journal.h"
+#include "validationFormat.h"
+
+namespace biblio
+{
+	const std::string& Journal::reqNom() const
+	{
+		return m_nom;
+	}
+
+	int Journal::reqNumero() const
+	{
+		return m_numero;
+	}
+
+	int Journal::reqPage() const
+	{
+		return m_page;
+	}
+
+	int Journal::reqVolume() const
+	{
+		return m_volume;
+	}
+
+	/**
+	* \brief Vérifie les invariants de la classe
+	*/
+	void Reference::verifieInvariant() const
+	{
+		INVARIANT(!(m_nom.empty()));
+		INVARIANT(m_numero > 0);
+		INVARIANT(m_page > 0);
+		INVARIANT(m_volume > 0);
+	}
+}  // namespace biblio
+

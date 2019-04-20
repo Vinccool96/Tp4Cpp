@@ -1,0 +1,18 @@
+/**
+ * \file Journal.h
+ * \brief TODO
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-08
+ */
+
+
+#ifndef JOURNAL_H_
+#define JOURNAL_H_
+
+#include "ContratException.h"
+
+#include <string>
+
+
+#endif /* JOURNAL_H_ */

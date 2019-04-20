@@ -1,0 +1,15 @@
+16:23:32 **** Incremental Build of configuration Debug for project labo_02 ****
+make all 
+Building file: ../src/cube.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cube.d" -MT"src/cube.o" -o "src/cube.o" "../src/cube.cpp"
+Finished building: ../src/cube.cpp
+ 
+Building target: labo_02
+Invoking: GCC C++ Linker
+g++  -o "labo_02"  ./src/cube.o   
+Finished building target: labo_02
+ 
+
+16:23:32 Build Finished (took 755ms)
+

@@ -1,0 +1,42 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../ContratException.cpp \
+../Journal.cpp \
+../Ouvrage.cpp \
+../Reference.cpp \
+../gestionReferences.cpp \
+../tests.cpp \
+../validationFormat.cpp 
+
+OBJS += \
+./ContratException.o \
+./Journal.o \
+./Ouvrage.o \
+./Reference.o \
+./gestionReferences.o \
+./tests.o \
+./validationFormat.o 
+
+CPP_DEPS += \
+./ContratException.d \
+./Journal.d \
+./Ouvrage.d \
+./Reference.d \
+./gestionReferences.d \
+./tests.d \
+./validationFormat.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+%.o: ../%.cpp
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C++ Compiler'
+	g++ -std=c++1z -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

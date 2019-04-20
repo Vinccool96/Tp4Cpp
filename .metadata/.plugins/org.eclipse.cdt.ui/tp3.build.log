@@ -1,0 +1,16 @@
+10:38:41 **** Incremental Build of configuration Debug for project tp3 ****
+make all 
+Building file: ../Ouvrage.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1z -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Ouvrage.d" -MT"Ouvrage.o" -o "Ouvrage.o" "../Ouvrage.cpp"
+Finished building: ../Ouvrage.cpp
+ 
+Building target: libtp3.a
+Invoking: GCC Archiver
+ar -r  "libtp3.a"  ./ContratException.o ./Journal.o ./Ouvrage.o ./Reference.o ./gestionReferences.o ./tests.o ./validationFormat.o   
+ar: création de libtp3.a
+Finished building target: libtp3.a
+ 
+
+10:38:42 Build Finished (took 454ms)
+

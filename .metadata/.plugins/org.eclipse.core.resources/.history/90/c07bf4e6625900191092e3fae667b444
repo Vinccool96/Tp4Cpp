@@ -1,0 +1,133 @@
+/**
+ * \file Reference.cpp
+ * \brief Implémentation de la classe Reference
+ * \author etudiant
+ * \date 2019-02-26
+ */
+
+#include "Reference.h"
+#include "validationFormat.h"
+#include <sstream>
+
+using namespace util;
+
+namespace biblio
+{
+
+	/**
+	 * \brief Crée une instance de Reference
+	 * \param[in] p_auteurs un string listant les auteurs
+	 * \param[in] p_titre le titre de la référence sous forme de string
+	 * \param[in] p_annee un int représantant l'année
+	 * \param[in] p_identifiant le string de l'identifiant
+	 */
+	Reference::Reference(const std::string& p_auteurs,
+	        const std::string& p_titre, int& p_annee,
+	        const std::string& p_identifiant) :
+			m_auteurs(p_auteurs), m_titre(p_titre), m_annee(p_annee), m_identifiant(
+			        p_identifiant)
+	{
+	}
+
+	/**
+	 * Le destructeur de Reference
+	 */
+	Reference::~Reference()
+	{
+
+	}
+
+	/**
+	 * Retourne l'année de la référence
+	 * \return  le int de l'année
+	 */
+	const int Reference::reqAnnee() const
+	{
+		return m_annee;
+	}
+
+	/**
+	 * Assigne l'année de la référence
+	 * \param[in] p_annee le int de la nouvelle année
+	 */
+	void Reference::asgAnnee(int p_annee)
+	{
+		m_annee = p_annee;
+	}
+
+	/**
+	 * Retourne les auteurs de la référence
+	 * \return le string des auteurs
+	 */
+	const std::string& Reference::reqAuteurs() const
+	{
+		return m_auteurs;
+	}
+
+	/**
+	 * Assigne les auteurs de la référence
+	 * \param[in] p_auteurs le string des nouveaux auteurs
+	 */
+	void Reference::asgAuteurs(const std::string& p_auteurs)
+	{
+		if (validerFormatNom(p_auteurs))
+		{
+			m_auteurs = p_auteurs;
+		}
+	}
+
+	/**
+	 * Retourne l'identifiant de la référence
+	 * \return le string de l'identifiant
+	 */
+	const std::string& Reference::reqIdentifiant() const
+	{
+		return m_identifiant;
+	}
+
+	/**
+	 * Assigne l'identifiant de la référence s'il est valide
+	 * \param[in] p_identifiant le string du nouvel identifiant
+	 */
+	void Reference::asgIdentifiant(const std::string& p_identifiant)
+	{
+		m_identifiant = p_identifiant;
+	}
+
+	/**
+	 * Retourne le titre de la référence
+	 * \return le string du titre
+	 */
+	const std::string& Reference::reqTitre() const
+	{
+		return m_titre;
+	}
+
+	/**
+	 * Assigne le titre de la référence
+	 * \param[in] p_titre le string du nouveau titre
+	 */
+	void Reference::asgTitre(const std::string& p_titre)
+	{
+	}
+
+	/**
+	 * La représentation textuelle de la référence
+	 * \return un string sous la forme "auteur, titre, année, identificateur"
+	 */
+	std::string Reference::reqReferenceFormate() const
+	{
+		std::ostringstream oss;
+		oss << reqAuteurs() << ", " << reqTitre() << ", " << reqAnnee() << ", "
+		        << reqIdentifiant();
+		return oss.str();
+	}
+
+	void Reference::verifieInvariant() const
+	{
+		INVARIANT(!(m_auteurs.empty()));
+	}
+
+}  // namespace biblio
+
+

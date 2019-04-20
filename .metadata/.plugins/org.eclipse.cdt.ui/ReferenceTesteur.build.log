@@ -1,0 +1,15 @@
+00:35:08 **** Incremental Build of configuration Debug for project ReferenceTesteur ****
+make all 
+Building file: ../ReferenceTesteur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1z -I"/home/etudiant/progr/tp3" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReferenceTesteur.d" -MT"ReferenceTesteur.o" -o "ReferenceTesteur.o" "../ReferenceTesteur.cpp"
+Finished building: ../ReferenceTesteur.cpp
+ 
+Building target: ReferenceTesteur
+Invoking: GCC C++ Linker
+g++ -L"/home/etudiant/progr/tp3/Debug" -o "ReferenceTesteur"  ./ReferenceTesteur.o   -lgtest -lgtest_main -lpthread -ltp3
+Finished building target: ReferenceTesteur
+ 
+
+00:35:09 Build Finished (took 887ms)
+

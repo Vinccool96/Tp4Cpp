@@ -1,0 +1,15 @@
+10:55:17 **** Incremental Build of configuration Debug for project OuvrageTesteur ****
+make all 
+Building file: ../OuvrageTesteur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1z -I"/home/etudiant/progr/source" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"OuvrageTesteur.d" -MT"OuvrageTesteur.o" -o "OuvrageTesteur.o" "../OuvrageTesteur.cpp"
+Finished building: ../OuvrageTesteur.cpp
+ 
+Building target: OuvrageTesteur
+Invoking: GCC C++ Linker
+g++ -L"/home/etudiant/progr/source/Debug" -o "OuvrageTesteur"  ./OuvrageTesteur.o   -lgtest_main -lgtest -lpthread -lsource
+Finished building target: OuvrageTesteur
+ 
+
+10:55:18 Build Finished (took 888ms)
+

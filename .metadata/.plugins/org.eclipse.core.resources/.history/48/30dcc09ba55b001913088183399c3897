@@ -1,0 +1,13 @@
+/**
+ * \file Journal_Testeur.cpp
+ * \brief Fichier test pour la classe Journal
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-10
+ */
+
+#include <gtest/gtest.h>
+#include <iostream>
+#include <sstream>
+#include "Journal.h"
+

@@ -1,0 +1,27 @@
+/**
+ * \file Journal_Testeur.cpp
+ * \brief Fichier test pour la classe Journal
+ * \author etudiant
+ * \version 1.0
+ * \date 2019-04-10
+ */
+
+#include <gtest/gtest.h>
+#include <iostream>
+#include <sstream>
+#include "Journal.h"
+
+using namespace biblio;
+
+int annee = 2030;
+int volume = 30;
+int numero = 69;
+int page = 420;
+
+TEST(Journal, Constructeur)
+{
+	Journal journal("Albert Einstein", "Mein Kampf", annee, "ISSN 0395-2037",
+	        "Les avancées modernes en philosophie", volume, numero, page);
+	ASSERT_EQ("Les avancées modernes en philosophie",journal);
+}
+

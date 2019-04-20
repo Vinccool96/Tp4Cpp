@@ -1,0 +1,111 @@
+/**
+ * \file gestionReferences.cpp
+ * \brief Programme principal
+ * \author etudiant
+ * \date 2019-02-27
+ */
+
+#include <iostream>
+#include "Reference.h"
+#include "validationFormat.h"
+using namespace std;
+using namespace biblio;
+using namespace util;
+
+int main()
+{
+	string auteurs;
+	string titre;
+	int annee;
+	string identifiant;
+	cout << "Crée une référence" << endl;
+	do
+	{
+		cout << "Entre le nom des auteurs:" << endl;
+		std::getline(std::cin, auteurs);
+	} while (!validerFormatNom(auteurs));
+	{
+		cout << "Entre le titre:" << endl;
+		std::getline(std::cin, titre);
+	}
+	do
+	{
+		string anneeStr;
+		cout << "Entre l'année:" << endl;
+		std::getline(std::cin, anneeStr);
+		annee = std::stoi(anneeStr);
+	} while (annee <= 0);
+	do
+	{
+		cout << "Entre le code d'identification:" << endl;
+		std::getline(std::cin, identifiant);
+	} while (!(validerCodeIssn(identifiant) || validerCodeIsbn(identifiant)));
+	Reference ref = Reference(auteurs, titre, annee, identifiant);
+	cout << "Ta référence:" << ref.reqReferenceFormate() << endl;
+	string modifier;
+	do
+	{
+		cout << "Veux-tu la modifier? (o/n)" << endl;
+		std::getline(std::cin, modifier);
+	} while (!(modifier == "o" || modifier == "n"));
+	while (modifier == "o")
+	{
+		string quoi = "";
+		bool isQuoiCorrect = false;
+		do
+		{
+			cout << "Tu veux modifier quoi? (auteurs/titre/année/identifiant)"
+			        << endl;
+			std::getline(std::cin, quoi);
+
+			if (quoi == "auteurs")
+			{
+				do
+				{
+					cout << "Entre le nom des auteurs:" << endl;
+					std::getline(std::cin, auteurs);
+				} while (!validerFormatNom(auteurs));
+				ref.asgAuteurs(auteurs);
+				isQuoiCorrect = true;
+			}
+			else if (quoi == "titre")
+			{
+				cout << "Entre le titre:" << endl;
+				std::getline(std::cin, titre);
+				ref.asgTitre(titre);
+				isQuoiCorrect = true;
+			}
+			else if (quoi == "année")
+			{
+				do
+				{
+					string anneeStr;
+					cout << "Entre l'année:" << endl;
+					std::getline(std::cin, anneeStr);
+					annee = std::stoi(anneeStr);
+				} while (annee <= 0);
+				ref.asgAnnee(annee);
+				isQuoiCorrect = true;
+			}
+			else if (quoi == "identifiant")
+			{
+				do
+				{
+					cout << "Entre le code d'identification:" << endl;
+					std::getline(std::cin, identifiant);
+				} while (!(validerCodeIssn(identifiant)
+				        || validerCodeIsbn(identifiant)));
+				ref.asgIdentifiant(identifiant);
+				isQuoiCorrect = true;
+			}
+		} while (isQuoiCorrect);
+		cout << "Ta référence:" << ref.reqReferenceFormate() << endl;
+		do
+		{
+			cout << "Veux-tu la modifier à nouveau? (o/n)" << endl;
+			std::getline(std::cin, modifier);
+		} while (!(modifier == "o" || modifier == "n"));
+	}
+	cout << "Bye";
+	return 0;
+}

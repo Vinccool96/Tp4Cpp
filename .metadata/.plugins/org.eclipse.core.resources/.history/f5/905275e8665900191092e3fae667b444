@@ -1,0 +1,55 @@
+/**
+ * \file Reference.h
+ * \brief Interface de la classe Reference
+ * \author etudiant
+ * \date 2019-02-26
+ */
+
+#ifndef REFERENCE_H_
+#define REFERENCE_H_
+
+#include "ContratException.h"
+
+#include <string>
+
+namespace biblio
+{
+
+	/**
+	 * \class Reference
+	 * \brief Classe implémentant le concept de référence bibliographique
+	 *
+	 * La classe Reference permet d'implanter le concept de référence bibliographique utilisée dans un ouvrage
+	 *
+	 * 	Attributs:
+	 * 		string 	m_auteurs: 		Le ou les auteurs de la référence
+	 * 		string 	m_titre:		Le titre de la référence
+	 * 		int 	m_annee:		L'année de publication de la référence
+	 * 		string 	m_identifiant	Le code d'identification de la référence, soit un code ISSN, soit le code ISBN
+	 */
+	class Reference
+	{
+		public:
+			Reference(const std::string& p_auteurs, const std::string& p_titre,
+			        int& p_annee, const std::string& p_identifiant);
+			~Reference();
+			const int reqAnnee() const;
+			void asgAnnee(int p_annee);
+			const std::string& reqAuteurs() const;
+			void asgAuteurs(const std::string& p_auteurs);
+			const std::string& reqIdentifiant() const;
+			void asgIdentifiant(const std::string& p_identifiant);
+			const std::string& reqTitre() const;
+			void asgTitre(const std::string& p_titre);
+			std::string reqReferenceFormate() const;
+
+		private:
+			std::string m_auteurs;
+			std::string m_titre;
+			int m_annee;
+			std::string m_identifiant;
+			void verifieInvariant() const;
+	};
+} // namespace biblio
+
+#endif /* REFERENCE_H_ */
